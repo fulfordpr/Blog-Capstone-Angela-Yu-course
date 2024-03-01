@@ -55,9 +55,16 @@ app.get('/posts/:id', (req, res) => {
 
 //CHALLENGE 3: POST a new post
 app.post('/posts', (req, res) => {
+  console.log(posts)
+  let id
+  if(posts = []){
+    id = 1
+  } else {
+    id = posts.slice(-1)[0].id + 1
+  }
   const newPost = 
   {
-    id: posts.slice(-1)[0].id + 1,
+    id: id,
     title: req.body.title,
     content: req.body.content,
     author: req.body.author,
